@@ -62,6 +62,75 @@ The use of the State Pattern in the current design allows the following benefits
 - We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
 - There are now more classes and instances to manage, but still in a reasonable number.
 
+#### State 
+
+**Problem in Context**
+
+In the game, different states need to be managed, such as Running, Paused, and GameOver. Each state has specific key processing logic and on-screen drawings.
+
+**The Pattern**
+
+We have applied the ***State*** pattern. This pattern helps you in State Management, i.e. encapsulating the specific behavior of each game state in separate classes (RunningState, PausedState, GameOverState). and Extension facility that allows the addition of new states without modifying existing classes.
+
+**Implementation**
+
+Create a GameState or State interface with processKey() and draw() methods to represent the behaviors common to all states.
+Implement classes (RunningState, PausedState, GameOverState) that inherit or implement the GameState interface with state-specific logic.
+
+**Consequences**
+
+-Maintainability: Ease of adding, removing, or modifying states.
+-Readability: Clarity in separating the logic of each game state.
+
+#### Factory
+
+**Problem in Context**
+
+The creation of game elements (Meteor, Power, SpaceShip) needs to be flexible and extensible to add new types of elements in the future.
+
+
+**The Pattern**
+
+Flexible Object Creation: Allow the creation of objects without specifying the exact class of the object to be created.
+Encapsulate Creation: Delegate creation responsibility to subclasses.
+
+**Implementation**
+
+Create a common Element interface or abstract class for all game elements.
+Implement an ElementFactory class with methods (e.g., createMeteor(), createPower(), createSpaceShip()) to create each element type.
+ElementFactory subclasses for each element type that implement the authoring methods.
+
+
+**Consequences**
+
+-Flexibility: Makes it easy to add new types of elements.
+-Decoupling: Separates the object's creation logic from its specific implementations.
+
+#### MVC Pattern
+
+**Problem in Context**
+
+It is necessary to separate the responsibilities of business, GUI, and game control to facilitate the maintenance and reuse of the code.
+
+**The Pattern**
+
+Separation of Responsibilities: Divide the application into Model (business logic), View (graphical interface) and Controller (control of user interactions).
+Maintainability: Allow changes to one layer without affecting the others.
+
+**Implementation**
+
+Model: Refatorar as classes existentes para representar a lógica de negócios do jogo (como Arena, Element, Game).
+View: Classes relacionadas à interface gráfica (TextGraphics, métodos de desenho na tela).
+Controller: Gerenciar a interação do usuário (Arena.processKey(), métodos de controle de entrada).
+
+
+**Consequences**
+
+-Organização Estruturada: Divisão clara das responsabilidades do sistema.
+-Facilidade de Manutenção: Alterações em uma camada não afetam diretamente as outras.
+
+
+
 #### KNOWN CODE SMELLS
 
 > This section should describe 3 to 5 different code smells that you have identified in your current implementation.
