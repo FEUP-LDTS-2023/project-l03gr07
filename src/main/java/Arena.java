@@ -68,11 +68,19 @@ public class Arena {
         spaceShip.setPosition(position);
     }
 
+    public void setSpaceShipPosition(int x, int y) {
+        spaceShip.setPosition(new Position(x, y));
+    }
+
     private List<Meteor> createMeteors() {
         Random random = new Random();
         ArrayList<Meteor> meteors = new ArrayList<>();
         for (int i = 0; i < 5; i++)
             meteors.add(new Meteor(random.nextInt(width - 2) + 1, -1));
+        return meteors;
+    }
+
+    public List<Meteor> getMeteors() {
         return meteors;
     }
 
@@ -91,7 +99,7 @@ public class Arena {
         }
     }
 
-    private void verifyCollisions() {
+    public void verifyCollisions() {
         Position spaceShipPosition = spaceShip.getPosition();
 
         for (Meteor meteor : meteors) {
@@ -113,10 +121,15 @@ public class Arena {
         return powers;
     }
 
-    private void retrievePowers(){
-        for (int i = 0; i < powers.size(); i++){
-            if (spaceShip.getPosition().equals(powers.get(i).getPosition())){
-                powers.remove(i);
+    public List<Power> getPowers() {
+        return powers;
+    }
+
+    public void retrievePowers(){
+        for (Power power: powers) {
+            if (spaceShip.getPosition().equals(power.getPosition())) {
+                powers.remove(power);
+                break;
             }
         }
     }
