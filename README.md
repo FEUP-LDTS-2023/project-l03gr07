@@ -136,9 +136,24 @@ Controller: Gerenciar a interação do usuário (Arena.processKey(), métodos de
 > This section should describe 3 to 5 different code smells that you have identified in your current implementation.
 
 ### TESTING
+We were able to successfully carry out 4 tests:
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
+- The **CollisionTest**, which checks if the game ends when a meteor collides with our ship.
+- The **MeteorTest** which allows us to test if the meteor always moves on the y-axis and downwards.
+- The **PowerTest** which checks if, after the ship collects a power-up, it disappears from the available list of power-ups.
+- The **SpaceShipTest**, which tests the movement of our spaceship because if it doesn't work properly, we won't be able to defeat the enemies that will appear in the future.
+
+<p align="center">
+  <img src="./resources/Images/all_tests.png" alt="Tests">
+</p>
+
+
+- **Screenshot of coverage report**
+        - class coverage: 66%, method coverage: 73%, line coverage 50%
+<p align="center">
+  <img src="./resources/Images/tests_coverage.png" alt="Tests_Coverage">
+</p>
+
 
 ### SELF-EVALUATION
 
