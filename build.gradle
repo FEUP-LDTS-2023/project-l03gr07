@@ -4,7 +4,7 @@ plugins {
     id 'info.solidsoft.pitest' version '1.15.0'
 }
 
-group = 'com.aor.spaceship'
+group = 'com.mrs.spaceship'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -24,7 +24,7 @@ test {
 }
 
 application {
-    mainClass.set('com.aor.spaceship.Application')
+    mainClass.set('com.mrs.spaceship.Application')
 }
 
 pitest {
